@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/gh/israjatiangar/ricss@main/css/ri.min.css" />
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css" />
+		<style>
+			body {
+				background-color: var(--ri-background);
+				background-image:
+					linear-gradient(
+						rgb(from var(--ri-accent) r g b / 0.025) 2px,
+						transparent 2px
+					),
+					linear-gradient(
+						90deg,
+						rgb(from var(--ri-accent) r g b / 0.025) 2px,
+						transparent 2px
+					),
+					linear-gradient(
+						rgb(from var(--ri-accent) r g b / 0.025) 1px,
+						transparent 1px
+					),
+					linear-gradient(
+						90deg,
+						rgb(from var(--ri-accent) r g b / 0.025) 1px,
+						transparent 1px
+					);
+				background-attachment: fixed;
+				background-size:
+					2rem 2rem,
+					2rem 2rem,
+					1rem 1rem,
+					1rem 1rem;
+			}
+			article {
+				line-break: pre;
+				height: 100%;
+				justify-content: stretch;
+				align-items: space-between;
+			}
+			nav > h1 {
+				&:first-letter {
+					content: '';
+				}
+			}
+			img {
+				width: min(300px, 100%);
+				height: auto;
+			}
+			.textAlign-center {
+				text-align: center;
+			}
+			.sticky-top {
+				position: sticky;
+				top: 0;
+				background-color: inherit;
+			}
+			#GoTop {
+				position: fixed;
+				right: 0;
+				bottom: 0;
+				margin: 1rem;
+				animation: --fadeIn;
+				animation-timeline: scroll();
+			}
+			.ph-bold {
+				display: inline-block;
+				font-size: 1.5rem;
+				translate: 0 20%;
+			}
+			@keyframes --fadeIn {
+				0%,
+				5% {
+					pointer-events: none;
+					opacity: 0;
+				}
+				10%,
+				100% {
+					pointer-events: all;
+					opacity: 1;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<h1>Rajat Iangar</h1>
+				<button id="Magic" type="button">🪄 Magic</button>
+			</nav>
+		</header>
+		<main>
+			<section id="About_Me">
+				<h2>About Me</h2>
+				<span>
+					<code>📍Mumbai, India</code>
+					<code>🌐 Fullstack Web Developer</code>
+					<code>🟢 Open to Opportunities</code>
+				</span>
+				<aside class="ri-font-code">
+					<header class="sticky-top">
+						From: <code>iangarrajat@yahoo.com</code>
+					</header>
+					<div>
+						<p>
+							Hi there,
+							<br /><br />
+							I'm a Fullstack Web Developer specializing in MERN
+							stack development. I hold a Bachelor's degree in
+							Design, and moved into web development after
+							realizing I wanted to build the interactive
+							experiences that I used to only design. <br /><br />
+							I'd love to connect, feel free to reach out.
+							<br /><br />
+							<small>
+								P.S. I'm @israjatiangar on most social
+								platforms.
+							</small>
+						</p>
+						<hr />
+						<details open>
+							<summary>🔗Attachment: 🖼️ profile_pic.jpg</summary>
+							<hr />
+							<figure>
+								<img
+									src="./IMG_0368 copy.JPG"
+									alt="The best looking person i.e Rajat Iangar" />
+								<figcaption>My Beautiful Picture</figcaption>
+							</figure>
+						</details>
+					</div>
+					<footer>
+						<a href="mailto:iangarrajat@yahoo.com" role="button">
+							↪ Reply
+						</a>
+					</footer>
+				</aside>
+				<div class="ri-grid">
+					<a
+						href="https://github.com/israjatiangar"
+						role="button"
+						target="_blank">
+						<i class="ph-bold ph-github-logo"></i>
+						Github
+					</a>
+					<a
+						href="https://www.instagram.com/israjatiangar/"
+						role="button"
+						target="_blank">
+						<i class="ph-bold ph-instagram-logo"></i>
+						Instagram
+					</a>
+					<a
+						href="https://www.linkedin.com/in/israjatiangar/"
+						role="button"
+						target="_blank">
+						<i class="ph-bold ph-linkedin-logo"></i>
+						Linkedin
+					</a>
+					<a
+						href="https://www.threads.com/@israjatiangar"
+						role="button"
+						target="_blank">
+						<i class="ph-bold ph-threads-logo"></i>
+						Threads
+					</a>
+				</div>
+			</section>
+
+			<section id="Projects">
+				<h2>Projects</h2>
+				<div id="ProjectList"></div>
+				<br />
+				<button commandfor="Weather" command="show-modal">
+					Open Weather App Here
+				</button>
+			</section>
+
+			<section id="Skills">
+				<h2>Skills</h2>
+				<div class="ri-grid">
+					<article>
+						<header>
+							<strong> Frontend </strong>
+						</header>
+						<p>
+							<code> JavaScript </code>
+							<code> TypeScript </code>
+							<code> React </code>
+							<code> Svelte </code>
+							<code> HTML </code>
+							<code> CSS </code>
+							<code> Tailwind CSS </code>
+						</p>
+					</article>
+
+					<article>
+						<header>
+							<strong> Backend </strong>
+						</header>
+						<p>
+							<code> Node.js </code>
+							<code> Express </code>
+							<code> MongoDB </code>
+						</p>
+					</article>
+
+					<article>
+						<header>
+							<strong> Tools </strong>
+						</header>
+						<p>
+							<code> Git </code>
+							<code> npm </code>
+							<code> Vercel </code>
+							<code> Bash </code>
+							<code> JSDoc </code>
+						</p>
+					</article>
+
+					<article>
+						<header>
+							<strong> Design </strong>
+						</header>
+						<p>
+							<code> Figma </code>
+							<code> Affinity </code>
+							<code> Krita </code>
+						</p>
+					</article>
+				</div>
+			</section>
+
+			<section id="Education" class="ri-rounded-max">
+				<h2>Education</h2>
+				<aside>
+					<div>
+						<strong>Bachelor of Design (B.Des)</strong>
+						<br />
+						<small> ITM University </small>
+					</div>
+				</aside>
+				<aside>
+					<div>
+						<strong>
+							Fullstack Web Development Course (MERN)
+						</strong>
+						<br />
+						<small> Felix ITs </small>
+					</div>
+				</aside>
+			</section>
+
+			<section id="Misc">
+				<dialog id="Weather">
+					<header>
+						<strong> Weather App Preview </strong>
+					</header>
+					<iframe
+						src="https://israjatiangar.github.io/ricast/"
+						loading="lazy"
+						frameborder="0"
+						height="500px"
+						width="100%"></iframe>
+					<footer>
+						<button command="close" commandfor="Weather">
+							Close
+						</button>
+					</footer>
+				</dialog>
+				<button id="GoTop">Back to Top</button>
+			</section>
+		</main>
+		<br />
+		<footer>
+			<div>
+				<small>
+					Copyright 2026 Rajat Iangar
+					<br />
+					icons from Phospor
+					<br />
+					made with ricss
+				</small>
+			</div>
+		</footer>
+	</body>
+</html>
