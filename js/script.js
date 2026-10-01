@@ -1,6 +1,7 @@
 const PAGE_BODY = document.querySelector('body')
 const GO_TOP = document.querySelector('#Go_Top')
 const MAGIC = document.querySelector('#Magic')
+let count = 0
 
 function makeTags(item) {
 	const para = document.createElement('p')
@@ -37,6 +38,31 @@ function makeCards(item) {
 	div.append(description, descriptors, livePreview)
 	article.append(header, div, footer)
 	document.querySelector('#ProjectList').append(article)
+}
+
+function checkCount() {
+	count++
+	if (count <= 10) return
+	else if (count <= 15) {
+		moveButton()
+		return
+	} else {
+		stopButton()
+		count = 0
+	}
+}
+function moveButton() {
+	let x = 10 + Math.round(Math.random() * 80)
+	let y = 10 + Math.round(Math.random() * 80)
+	MAGIC.style.zIndex = '1'
+	MAGIC.style.position = 'absolute'
+	MAGIC.style.top = `${x}%`
+	MAGIC.style.left = `${y}%`
+}
+function stopButton() {
+	MAGIC.style.position = 'static'
+	MAGIC.style.top = `0`
+	MAGIC.style.left = `0`
 }
 
 async function mainProjects() {
@@ -76,31 +102,4 @@ MAGIC.addEventListener('click', () => changeColor())
 MAGIC.addEventListener('click', () => checkCount())
 
 changeColor()
-// mainProjects()
-
-let count = 0
-
-function checkCount() {
-	count++
-	if (count <= 10) return
-	else if (count <= 15) {
-		moveButton()
-		return
-	} else {
-		stopButton()
-		count = 0
-	}
-}
-function moveButton() {
-	let x = 10 + Math.round(Math.random() * 80)
-	let y = 10 + Math.round(Math.random() * 80)
-	MAGIC.style.zIndex = '1'
-	MAGIC.style.position = 'absolute'
-	MAGIC.style.top = `${x}%`
-	MAGIC.style.left = `${y}%`
-}
-function stopButton() {
-	MAGIC.style.position = 'static'
-	MAGIC.style.top = `0`
-	MAGIC.style.left = `0`
-}
+mainProjects()
