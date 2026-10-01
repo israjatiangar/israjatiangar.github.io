@@ -1,9 +1,30 @@
 <!doctype html>
 <html lang="en">
 	<head>
+		<!-- #region Meta -->
+
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<meta
+			name="description"
+			content="Rajat Iangar is a fullstack web developer specializing in MERN stack development, with a background in design." />
+		<link rel="canonical" href="https://israjatiangar.github.io/" />
+		<meta name="theme-color" content="#22b" />
+		<!-- #endregion -->
+
+		<!-- #region OPEN GRAPH -->
+		<meta property="og:type" content="website" />
+		<meta
+			property="og:title"
+			content="Rajat Iangar | Fullstack Web Developer" />
+		<meta
+			property="og:description"
+			content="Portfolio and personal website of Rajat Iangar, a fullstack web developer with a background in design." />
+		<meta property="og:url" content="https://israjatiangar.github.io/" />
+		<!-- #endregion -->
+
+		<!-- #region Title & Links -->
+		<title>Rajat Iangar | Fullstack Web Developer</title>
 		<link
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/gh/israjatiangar/ricss@main/css/ri.min.css" />
@@ -13,6 +34,7 @@
 			href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css" />
 		<link rel="stylesheet" href="css/style.css" />
 		<script src="js/script.js" defer></script>
+		<!-- #endregion -->
 	</head>
 	<body>
 		<header>
@@ -29,9 +51,9 @@
 					<code>🌐 Fullstack Web Developer</code>
 					<code>🟢 Open to Opportunities</code>
 				</span>
-				<aside class="ri-font-code">
+				<article class="ri-font-code">
 					<header class="sticky-top">
-						From: <code>iangarrajat@yahoo.com</code>
+						From: <kbd>iangarrajat@yahoo.com</kbd>
 					</header>
 					<div>
 						<p>
@@ -52,7 +74,6 @@
 						<hr />
 						<details open>
 							<summary>🔗Attachment: 🖼️ profile_pic.jpg</summary>
-							<hr />
 							<figure>
 								<img
 									src="img/attachment.jpg"
@@ -62,11 +83,14 @@
 						</details>
 					</div>
 					<footer>
-						<a href="mailto:iangarrajat@yahoo.com" role="button">
+						<a
+							href="mailto:iangarrajat@yahoo.com"
+							class="ri-button-secondary"
+							role="button">
 							↪ Reply
 						</a>
 					</footer>
-				</aside>
+				</article>
 				<div class="ri-grid">
 					<a
 						href="https://github.com/israjatiangar"
@@ -165,14 +189,14 @@
 
 			<section id="Education" class="ri-rounded-max">
 				<h2>Education</h2>
-				<aside>
+				<article>
 					<div>
 						<strong>Bachelor of Design (B.Des)</strong>
 						<br />
 						<small> ITM University </small>
 					</div>
-				</aside>
-				<aside>
+				</article>
+				<article>
 					<div>
 						<strong>
 							Fullstack Web Development Course (MERN)
@@ -180,7 +204,7 @@
 						<br />
 						<small> Felix ITs </small>
 					</div>
-				</aside>
+				</article>
 			</section>
 
 			<section id="Misc">
@@ -200,20 +224,37 @@
 						</button>
 					</footer>
 				</dialog>
-				<button id="GoTop">Back to Top</button>
+				<button id="Go_Top" class="ri-button-secondary">
+					Back to Top
+				</button>
 			</section>
 		</main>
 		<br />
-		<footer>
-			<div>
-				<small>
-					Copyright 2026 Rajat Iangar
+		<footer class="ri-font-code">
+			<aside>
+				<p>
+					Yours Truly,<br />
+					Rajat Iangar
 					<br />
-					icons from Phospor
-					<br />
-					made with ricss
-				</small>
-			</div>
+					<small>
+						made with
+						<a
+							href="https://github.com/israjatiangar/ricss"
+							title="My quasi classless css Framework">
+							ricss
+						</a>
+						<br />
+						icons from
+						<a
+							href="https://phosphoricons.com/"
+							title="Social icons provided by them">
+							Phosphor
+						</a>
+						<br />
+						Copyright 2026 Rajat Iangar
+					</small>
+				</p>
+			</aside>
 		</footer>
 	</body>
 </html>

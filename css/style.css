@@ -49,11 +49,11 @@ img {
 	top: 0;
 	background-color: inherit;
 }
-#GoTop {
+#Go_Top {
 	position: fixed;
 	right: 0;
 	bottom: 0;
-	margin: 1rem;
+	margin: 2rem 1rem;
 	animation: --fadeIn;
 	animation-timeline: scroll();
 }
