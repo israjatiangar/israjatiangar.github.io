@@ -1,56 +1,74 @@
+// #region Variables and Classes
 const PAGE_BODY = document.querySelector('body')
 const GO_TOP = document.querySelector('#Go_Top')
 const MAGIC = document.querySelector('#Magic')
 let count = 0
 
-function makeTags(item) {
-	const para = document.createElement('p')
+class card {
+	article = document.createElement('article')
+	header = document.createElement('header')
+	body = document.createElement('div')
+	description = document.createElement('p')
+	livePreview = document.createElement('a')
+	footer = document.createElement('footer')
+	button = document.createElement('a')
+	descriptors = null
 
-	item.map(item => {
-		const tag = document.createElement('code')
-		tag.textContent = item
-		para.append(tag, ` `)
-	})
+	makeTags = item => {
+		const container = document.createElement('p')
 
-	return para
-}
+		item.map(item => {
+			const tag = document.createElement('code')
+			tag.textContent = item
+			container.append(tag, ` `)
+		})
 
-function makeCards(item) {
-	const article = document.createElement('article')
-	const header = document.createElement('header')
-	const div = document.createElement('div')
-	const description = document.createElement('p')
-	const livePreview = document.createElement('a')
-	const footer = document.createElement('footer')
-	const button = document.createElement('a')
-	const descriptors = makeTags(item.topics)
+		return container
+	}
 
-	header.textContent = item.name
-	description.textContent = item.description
-	livePreview.textContent = 'Live Preview'
-	button.textContent = 'View on Github'
-
-	livePreview.setAttribute('href', item.homepage)
-	button.setAttribute('href', item.html_url)
-	button.setAttribute('role', 'button')
-
-	footer.append(button)
-	div.append(description, descriptors, livePreview)
-	article.append(header, div, footer)
-	document.querySelector('#ProjectList').append(article)
-}
-
-function checkCount() {
-	count++
-	if (count <= 10) return
-	else if (count <= 15) {
-		moveButton()
-		return
-	} else {
-		stopButton()
-		count = 0
+	assemble = () => {
+		this.footer.append(this.button)
+		this.body.append(this.description, this.descriptors, this.livePreview)
+		this.article.append(this.header, this.body, this.footer)
+		document.querySelector('#ProjectList').append(this.article)
 	}
 }
+//@ts-ignore
+const israjatiangar = () => true
+// #endregion
+
+// #region Functions
+function makeCards(item) {
+	const newCard = new card()
+	newCard.header.textContent = item.name
+	newCard.description.textContent = item.description
+	newCard.livePreview.textContent = 'Live Preview'
+	newCard.button.textContent = 'View on Github'
+	newCard.descriptors = newCard.makeTags(item.topics)
+
+	newCard.livePreview.setAttribute('href', item.homepage)
+	newCard.button.setAttribute('href', item.html_url)
+	newCard.button.setAttribute('role', 'button')
+
+	newCard.assemble()
+}
+
+async function mainProjects() {
+	const projects = [`ridoo`, `ricss`, `ricast`]
+
+	try {
+		projects.map(async project => {
+			const data = await fetch(
+				`https://api.github.com/repos/israjatiangar/${project}`
+			).then(response => response.json())
+
+			makeCards(data)
+		})
+	} catch {
+		console.log(error)
+	}
+}
+
 function moveButton() {
 	let x = 10 + Math.round(Math.random() * 80)
 	let y = 10 + Math.round(Math.random() * 80)
@@ -64,21 +82,20 @@ function stopButton() {
 	MAGIC.style.top = `0`
 	MAGIC.style.left = `0`
 }
-
-async function mainProjects() {
-	const projects = [`ridoo`, `ricss`, `ricast`]
-
-	projects.map(async project => {
-		const data = await fetch(
-			`https://api.github.com/repos/israjatiangar/${project}`
-		).then(response => response.json())
-
-		makeCards(data)
-	})
+function checkCount() {
+	count++
+	if (count < 10) return
+	else if (count < 15) {
+		moveButton()
+		return
+	} else {
+		stopButton()
+		count = 0
+	}
 }
 
 function changeColor() {
-	const color = Number(PAGE_BODY.getAttribute('data-ri-hue')) ?? 244
+	const color = Number(PAGE_BODY.getAttribute('data-ri-hue')) || 244
 	let newColor = color
 
 	while (Math.abs(newColor - color) <= 45) {
@@ -94,12 +111,20 @@ function changeColor() {
 		.querySelector('meta[name="theme-color"]')
 		.setAttribute('content', ricolor)
 }
+// #endregion
 
-GO_TOP.addEventListener('click', () => {
-	window.scroll(0, 0)
-})
-MAGIC.addEventListener('click', () => changeColor())
-MAGIC.addEventListener('click', () => checkCount())
+// #region IIFE Initialisation
+;(() => {
+	GO_TOP.addEventListener('click', () => {
+		window.scroll(0, 0)
+	})
 
-changeColor()
-mainProjects()
+	MAGIC.addEventListener('click', () => {
+		changeColor()
+		checkCount()
+	})
+
+	changeColor()
+	mainProjects()
+})()
+// #endregion
