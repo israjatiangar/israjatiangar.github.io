@@ -1,7 +1,22 @@
+//@ts-check
 // #region Variables and Classes
-const PAGE_BODY = document.querySelector('body')
-const GO_TOP = document.querySelector('#Go_Top')
-const MAGIC = document.querySelector('#Magic')
+/** @typedef Repo
+ * @property {String} name
+ * @property {String} description
+ * @property {Array<String>} topics
+ * @property {String} homepage
+ * @property {String} html_url
+ */
+const PAGE_BODY =
+	/** @type {HTMLBodyElement} */
+	(document.querySelector('body'))
+const GO_TOP =
+	/** @type {HTMLButtonElement} */
+	(document.querySelector('#Go_Top'))
+const MAGIC =
+	/** @type {HTMLButtonElement} */
+	(document.querySelector('#Magic'))
+
 let count = 0
 
 class card {
@@ -12,8 +27,12 @@ class card {
 	livePreview = document.createElement('a')
 	footer = document.createElement('footer')
 	button = document.createElement('a')
-	descriptors = null
+	/**@type {HTMLParagraphElement} */
+	descriptors = document.createElement('p')
 
+	/** @param {Array<String>} item
+	 * @returns {HTMLParagraphElement}
+	 */
 	makeTags = item => {
 		const container = document.createElement('p')
 
@@ -30,7 +49,7 @@ class card {
 		this.footer.append(this.button)
 		this.body.append(this.description, this.descriptors, this.livePreview)
 		this.article.append(this.header, this.body, this.footer)
-		document.querySelector('#ProjectList').append(this.article)
+		document.querySelector('#ProjectList')?.append(this.article)
 	}
 }
 //@ts-ignore
@@ -38,6 +57,7 @@ const israjatiangar = () => true
 // #endregion
 
 // #region Functions
+/** @param {Repo} item */
 function makeCards(item) {
 	const newCard = new card()
 	newCard.header.textContent = item.name
@@ -55,7 +75,7 @@ function makeCards(item) {
 
 async function mainProjects() {
 	const projects = [`ridoo`, `ricss`, `ricast`]
-
+	/*** @type {Array<Repo>} */
 	const projectsList = await fetch(
 		`https://api.github.com/users/israjatiangar/repos`
 	).then(r => r.json())
@@ -90,6 +110,7 @@ function checkCount() {
 }
 
 function changeColor() {
+	/** @type{Number} */
 	const color = Number(PAGE_BODY.getAttribute('data-ri-hue')) || 244
 	let newColor = color
 
@@ -97,14 +118,14 @@ function changeColor() {
 		newColor = Math.round(Math.random() * 360)
 	}
 
-	PAGE_BODY.setAttribute('data-ri-hue', newColor)
+	PAGE_BODY.setAttribute('data-ri-hue', String(newColor))
 
 	const ricolor = getComputedStyle(document.documentElement)
 		.getPropertyValue('--ri-background')
 		.trim()
 	document
 		.querySelector('meta[name="theme-color"]')
-		.setAttribute('content', ricolor)
+		?.setAttribute('content', ricolor)
 }
 // #endregion
 
