@@ -56,17 +56,12 @@ function makeCards(item) {
 async function mainProjects() {
 	const projects = [`ridoo`, `ricss`, `ricast`]
 
-	try {
-		projects.map(async project => {
-			const data = await fetch(
-				`https://api.github.com/repos/israjatiangar/${project}`
-			).then(response => response.json())
-
-			makeCards(data)
-		})
-	} catch {
-		console.log(error)
-	}
+	const projectsList = await fetch(
+		`https://api.github.com/users/israjatiangar/repos`
+	).then(r => r.json())
+	projectsList
+		.filter(repo => projects.includes(repo.name))
+		.forEach(repo => makeCards(repo))
 }
 
 function moveButton() {
