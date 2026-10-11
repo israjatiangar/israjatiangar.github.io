@@ -44,8 +44,8 @@ class card {
 
 		return container
 	}
-
 	assemble = () => {
+		this.button.classList.add('my-button')
 		this.footer.append(this.button)
 		this.body.append(this.description, this.descriptors, this.livePreview)
 		this.article.append(this.header, this.body, this.footer)
@@ -93,9 +93,10 @@ function moveButton() {
 	MAGIC.style.left = `${y}%`
 }
 function stopButton() {
-	MAGIC.style.position = 'static'
 	MAGIC.style.top = `0`
 	MAGIC.style.left = `0`
+	MAGIC.style.position = 'static'
+	MAGIC.style.zIndex = '0'
 }
 function checkCount() {
 	count++
@@ -135,7 +136,7 @@ function changeColor() {
 		window.scroll(0, 0)
 	})
 
-	MAGIC.addEventListener('click', () => {
+	MAGIC.addEventListener('pointerdown', () => {
 		changeColor()
 		checkCount()
 	})

@@ -44,24 +44,29 @@
 		<script src="js/script.js" defer></script>
 		<!-- #endregion -->
 	</head>
-	<body>
+	<body class="my-grid-texture">
 		<header>
 			<nav>
 				<h1>Rajat Iangar</h1>
-				<button id="Magic" type="button">🪄 Magic</button>
+				<button
+					id="Magic"
+					class="my-button my-magic-button"
+					type="button">
+					🪄 Magic
+				</button>
 			</nav>
 		</header>
 		<main>
 			<section id="About_Me">
 				<h2>About Me</h2>
 				<span>
-					<code>📍Mumbai, India</code>
-					<code>🌐 Fullstack Web Developer</code>
-					<code>🟢 Open to Opportunities</code>
+					<code class="my-chips">📍Mumbai, India</code>
+					<code class="my-chips">🌐 Fullstack Web Developer</code>
+					<code class="my-chips">🟢 Open to Opportunities</code>
 				</span>
-				<article class="ri-font-code">
-					<header class="sticky-top">
-						From: <kbd>iangarrajat@yahoo.com</kbd>
+				<article class="my-card ri-font-code">
+					<header class="my-stickyTop">
+						From: <kbd class="my-email">iangarrajat@yahoo.com</kbd>
 					</header>
 					<div>
 						<p>
@@ -84,6 +89,7 @@
 							<summary>🔗Attachment: 🖼️ profile_pic.jpg</summary>
 							<figure>
 								<img
+									class="my-img"
 									src="img/attachment.jpg"
 									alt="The best looking person i.e Rajat Iangar" />
 								<figcaption>My Beautiful Picture</figcaption>
@@ -92,8 +98,8 @@
 					</div>
 					<footer>
 						<a
+							class="my-button ri-button-secondary button"
 							href="mailto:iangarrajat@yahoo.com"
-							class="ri-button-secondary"
 							role="button">
 							↪ Reply
 						</a>
@@ -101,31 +107,35 @@
 				</article>
 				<div class="ri-grid">
 					<a
+						class="my-button"
 						href="https://github.com/israjatiangar"
 						role="button"
 						target="_blank">
-						<i class="ph-bold ph-github-logo"></i>
+						<i class="my-icon ph-bold ph-github-logo"></i>
 						Github
 					</a>
 					<a
+						class="my-button"
 						href="https://www.instagram.com/israjatiangar/"
 						role="button"
 						target="_blank">
-						<i class="ph-bold ph-instagram-logo"></i>
+						<i class="my-icon ph-bold ph-instagram-logo"></i>
 						Instagram
 					</a>
 					<a
+						class="my-button"
 						href="https://www.linkedin.com/in/israjatiangar/"
 						role="button"
 						target="_blank">
-						<i class="ph-bold ph-linkedin-logo"></i>
+						<i class="my-icon ph-bold ph-linkedin-logo"></i>
 						Linkedin
 					</a>
 					<a
+						class="my-button"
 						href="https://www.threads.com/@israjatiangar"
 						role="button"
 						target="_blank">
-						<i class="ph-bold ph-threads-logo"></i>
+						<i class="my-icon ph-bold ph-threads-logo"></i>
 						Threads
 					</a>
 				</div>
@@ -134,53 +144,53 @@
 			<section id="Skills">
 				<h2>Skills</h2>
 				<div class="ri-grid">
-					<article>
+					<article class="my-card">
 						<header>
 							<strong> Frontend </strong>
 						</header>
 						<p>
-							<code> JavaScript </code>
-							<code> TypeScript </code>
-							<code> React </code>
-							<code> Svelte </code>
-							<code> HTML </code>
-							<code> CSS </code>
-							<code> Tailwind CSS </code>
+							<code class="my-chips"> JavaScript </code>
+							<code class="my-chips"> TypeScript </code>
+							<code class="my-chips"> React </code>
+							<code class="my-chips"> Svelte </code>
+							<code class="my-chips"> HTML </code>
+							<code class="my-chips"> CSS </code>
+							<code class="my-chips"> Tailwind CSS </code>
 						</p>
 					</article>
 
-					<article>
+					<article class="my-card">
 						<header>
 							<strong> Backend </strong>
 						</header>
 						<p>
-							<code> Node.js </code>
-							<code> Express </code>
-							<code> MongoDB </code>
+							<code class="my-chips"> Node.js </code>
+							<code class="my-chips"> Express </code>
+							<code class="my-chips"> MongoDB </code>
 						</p>
 					</article>
 
-					<article>
+					<article class="my-card">
 						<header>
 							<strong> Tools </strong>
 						</header>
 						<p>
-							<code> Git </code>
-							<code> npm </code>
-							<code> Vercel </code>
-							<code> Bash </code>
-							<code> JSDoc </code>
+							<code class="my-chips"> Git </code>
+							<code class="my-chips"> npm </code>
+							<code class="my-chips"> Vercel </code>
+							<code class="my-chips"> Bash </code>
+							<code class="my-chips"> JSDoc </code>
 						</p>
 					</article>
 
-					<article>
+					<article class="my-card">
 						<header>
 							<strong> Design </strong>
 						</header>
 						<p>
-							<code> Figma </code>
-							<code> Affinity </code>
-							<code> Krita </code>
+							<code class="my-chips"> Figma </code>
+							<code class="my-chips"> Affinity </code>
+							<code class="my-chips"> Krita </code>
 						</p>
 					</article>
 				</div>
@@ -190,21 +200,24 @@
 				<h2>Projects</h2>
 				<div id="ProjectList"></div>
 				<br />
-				<button commandfor="Weather" command="show-modal">
+				<button
+					class="my-button"
+					commandfor="Weather"
+					command="show-modal">
 					Open Weather App Here
 				</button>
 			</section>
 
-			<section id="Education" class="ri-rounded-max">
+			<section id="Education">
 				<h2>Education</h2>
-				<article>
+				<article class="my-card">
 					<div>
 						<strong>Bachelor of Design (B.Des)</strong>
 						<br />
 						<small> ITM University </small>
 					</div>
 				</article>
-				<article>
+				<article class="my-card">
 					<div>
 						<strong>
 							Fullstack Web Development Course (MERN)
@@ -213,6 +226,85 @@
 						<small> Felix ITs </small>
 					</div>
 				</article>
+			</section>
+			<section id="FAQs">
+				<h2>More About Me</h2>
+				<details name="faqs">
+					<summary>What is my coding process like?</summary>
+					<hr />
+					<p>
+						I like to make things work first, then clean them up and
+						improve them later.
+						<br />
+						<br />
+						I prefer declaring things (variables, functions,
+						classes) before using them. I don’t want to deal with
+						hoisting headaches.
+						<br />
+						<br />
+						I also love organizing my code into objects. Is that
+						OOPs? I’m not entirely sure, I just like the structure.
+						<br />
+						<br />
+						I’m a big fan of <code>#region</code> and
+						<code>#endregion</code> for custom code folding. Before
+						that, I used to separate sections with:
+
+						<br /><br />
+						<code>======Name of Section======</code>
+					</p>
+				</details>
+				<details name="faqs">
+					<summary>What languages do I know?</summary>
+					<hr />
+					<p>
+						For programming, I'm currently learning Lua and Go, I
+						don't like python for its white space based syntax.
+						<br />
+						Outside of coding, I'm teaching myself Russian.
+					</p>
+				</details>
+				<details name="faqs">
+					<summary>TypeScript or JSDoc?</summary>
+					<hr />
+					<p>
+						I don’t like strictly typed languages, but I do love
+						type checking.
+						<br /><br />
+						I like both, though I prefer JSDoc, since it doesn’t
+						have a compile step, even if it’s a bit verbose.
+					</p>
+				</details>
+				<details name="faqs">
+					<summary>My Software Stack</summary>
+					<hr />
+					<p>
+						I love minimal software that gives me what I need and
+						gets out of the way.
+					</p>
+
+					<ul>
+						<li>Zed is my editor of choice.</li>
+
+						<li>
+							For design, I use Figma and Affinity. I loathe Adobe
+							(long story).
+						</li>
+
+						<li>
+							For drawing, I use Krita, Clip Studio, and Medibang.
+						</li>
+					</ul>
+				</details>
+				<details name="faqs">
+					<summary>What are my hobbies?</summary>
+					<hr />
+					<p>
+						Too many to list! I love learning languages (including
+						programming ones), making and playing games, drawing,
+						and coding.
+					</p>
+				</details>
 			</section>
 
 			<section id="Misc">
@@ -227,12 +319,17 @@
 						height="500px"
 						width="100%"></iframe>
 					<footer>
-						<button command="close" commandfor="Weather">
+						<button
+							class="my-button"
+							command="close"
+							commandfor="Weather">
 							Close
 						</button>
 					</footer>
 				</dialog>
-				<button id="Go_Top" class="ri-button-secondary">
+				<button
+					id="Go_Top"
+					class="my-button my-goTop-button ri-button-secondary">
 					Back to Top
 				</button>
 			</section>
@@ -240,9 +337,9 @@
 		<br />
 		<footer class="ri-font-code">
 			<aside>
-				<p>
+				<div>
 					Yours Truly,<br />
-					Rajat Iangar
+					Rajat Iangar.
 					<br />
 					<small>
 						made with
@@ -261,7 +358,7 @@
 						<br />
 						Copyright 2026 Rajat Iangar
 					</small>
-				</p>
+				</div>
 			</aside>
 		</footer>
 	</body>
