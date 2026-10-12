@@ -41,12 +41,18 @@
 	translate: 0 20%;
 }
 .my-button {
+	box-shadow:
+		rgb(from var(--ri-border-color) r g b) 0 0 0 2px,
+		inset rgb(from white r g b / 0.2) 0 3px 1px 0,
+		inset rgb(from black r g b / 0.2) 0 -3px 1px 0;
+	transition: box-shadow 0.6s ease-in;
 	&:hover,
 	&:focus {
 		box-shadow:
 			rgb(from var(--ri-border-color) r g b) 0 0 0 3px,
 			inset rgb(from white r g b / 0.2) 0 3px 1px 2px,
 			inset rgb(from black r g b / 0.2) 0 -3px 1px 2px;
+		transition: all 0.2s ease-out;
 	}
 	&:active {
 		box-shadow:
@@ -55,20 +61,6 @@
 			inset rgb(from black r g b / 0.2) 0 -3px 1px -1px;
 		scale: 0.95;
 	}
-	box-shadow:
-		rgb(from var(--ri-border-color) r g b) 0 0 0 2px,
-		inset rgb(from white r g b / 0.2) 0 3px 1px 0,
-		inset rgb(from black r g b / 0.2) 0 -3px 1px 0;
-	transition: box-shadow 0.2s ease-out;
-}
-.my-magic-button {
-	position: static;
-	top: 0;
-	left: 0;
-	interpolate-size: allow-keywords;
-	transition: all 0.2s ease-out;
-	transition-property: box-shadow, top, left, scale, overlay, display;
-	transition-behavior: allow-discrete;
 }
 .my-goTop-button {
 	position: fixed;
@@ -85,6 +77,7 @@
 		inset rgb(from black r g b / 0.2) 0 -3px 1px 0;
 }
 .my-chips {
+	margin-block: 0.2rem;
 	border: 1px rgb(from var(--ri-border-color) r g b) solid;
 	box-shadow:
 		inset rgb(from black r g b / 0.1) 0 1px 1px 0,

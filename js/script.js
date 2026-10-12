@@ -38,6 +38,7 @@ class card {
 
 		item.map(item => {
 			const tag = document.createElement('code')
+			tag.classList.add('my-chips')
 			tag.textContent = item
 			container.append(tag, ` `)
 		})
@@ -136,7 +137,7 @@ function changeColor() {
 		window.scroll(0, 0)
 	})
 
-	MAGIC.addEventListener('pointerdown', () => {
+	MAGIC.addEventListener('click', () => {
 		changeColor()
 		checkCount()
 	})
