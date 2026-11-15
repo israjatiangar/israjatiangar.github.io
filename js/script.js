@@ -7,6 +7,10 @@
  * @property {String} homepage
  * @property {String} html_url
  */
+/** @typedef localData
+ * @property {number} expiry
+ * @property {Array<Repo>} projectsList
+ */
 const PAGE_BODY =
 	/** @type {HTMLBodyElement} */
 	(document.querySelector('body'))
@@ -16,6 +20,8 @@ const GO_TOP =
 const MAGIC =
 	/** @type {HTMLButtonElement} */
 	(document.querySelector('#Magic'))
+
+const PROJECT_LIST = [`nullcents`, `ricast`, `ricss`, `ridoo`]
 
 let count = 0
 
@@ -50,6 +56,7 @@ class card {
 		this.footer.append(this.button)
 		this.body.append(this.description, this.descriptors, this.livePreview)
 		this.article.append(this.header, this.body, this.footer)
+		this.article.classList.add('my-card')
 		document.querySelector('#ProjectList')?.append(this.article)
 	}
 }
@@ -75,14 +82,41 @@ function makeCards(item) {
 }
 
 async function mainProjects() {
-	const projects = [`ridoo`, `ricss`, `ricast`]
-	/*** @type {Array<Repo>} */
-	const projectsList = await fetch(
-		`https://api.github.com/users/israjatiangar/repos`
-	).then(r => r.json())
-	projectsList
-		.filter(repo => projects.includes(repo.name))
-		.forEach(repo => makeCards(repo))
+	const DAYS_IN_MS = 86400000
+	/** @type {Array<Repo>} */
+	let projectsList = []
+	/** @type {localData} */
+	let localData = {
+		expiry: 0,
+		projectsList: [],
+	}
+	try {
+		localData = await JSON.parse(String(localStorage.getItem('localData')))
+	} catch (error) {
+		console.error(error)
+	} finally {
+		if (
+			!localData ||
+			localData.projectsList.length <= 0 ||
+			Date.now() >= localData.expiry
+		) {
+			projectsList = await fetch(
+				`https://api.github.com/users/israjatiangar/repos`
+			).then(response => response.json())
+			const expiry = Date.now() + 10 * DAYS_IN_MS
+			localStorage.setItem(
+				'localData',
+				JSON.stringify({ expiry: expiry, projectsList: projectsList })
+			)
+		} else {
+			projectsList = localData.projectsList
+		}
+		if (projectsList.length > 0) {
+			projectsList
+				.filter(repo => PROJECT_LIST.includes(repo.name))
+				.forEach(repo => makeCards(repo))
+		}
+	}
 }
 
 function moveButton() {

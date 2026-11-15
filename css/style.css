@@ -45,14 +45,12 @@
 		rgb(from var(--ri-border-color) r g b) 0 0 0 2px,
 		inset rgb(from white r g b / 0.2) 0 3px 1px 0,
 		inset rgb(from black r g b / 0.2) 0 -3px 1px 0;
-	transition: box-shadow 0.6s ease-in;
 	&:hover,
 	&:focus {
 		box-shadow:
 			rgb(from var(--ri-border-color) r g b) 0 0 0 3px,
 			inset rgb(from white r g b / 0.2) 0 3px 1px 2px,
 			inset rgb(from black r g b / 0.2) 0 -3px 1px 2px;
-		transition: all 0.2s ease-out;
 	}
 	&:active {
 		box-shadow:
@@ -89,16 +87,36 @@
 	justify-content: stretch;
 	align-items: space-between;
 }
-
 @keyframes --fadeIn {
 	0%,
 	5% {
 		pointer-events: none;
 		opacity: 0;
 	}
-	10%,
+	5%,
 	100% {
 		pointer-events: all;
 		opacity: 1;
+	}
+}
+@media (prefers-reduced-motion: no-preference) {
+	.my-button {
+		transition: box-shadow 0.6s ease-in;
+		&:hover,
+		&:focus {
+			transition: all 0.2s ease-out;
+		}
+	}
+	@keyframes --fadeIn {
+		0%,
+		5% {
+			pointer-events: none;
+			opacity: 0;
+		}
+		10%,
+		100% {
+			pointer-events: all;
+			opacity: 1;
+		}
 	}
 }
