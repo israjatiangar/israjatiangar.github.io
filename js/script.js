@@ -30,8 +30,8 @@ class card {
 	header = document.createElement('header')
 	body = document.createElement('div')
 	description = document.createElement('p')
-	livePreview = document.createElement('a')
 	footer = document.createElement('footer')
+	livePreview = document.createElement('a')
 	button = document.createElement('a')
 	/**@type {HTMLParagraphElement} */
 	descriptors = document.createElement('p')
@@ -52,9 +52,10 @@ class card {
 		return container
 	}
 	assemble = () => {
-		this.button.classList.add('my-button')
-		this.footer.append(this.button)
-		this.body.append(this.description, this.descriptors, this.livePreview)
+		this.button.classList.add('my-button', 'ri-button-secondary')
+		this.livePreview.classList.add('my-button')
+		this.footer.append(this.livePreview, this.button)
+		this.body.append(this.description, this.descriptors)
 		this.article.append(this.header, this.body, this.footer)
 		this.article.classList.add('my-card')
 		document.querySelector('#ProjectList')?.append(this.article)
@@ -75,6 +76,7 @@ function makeCards(item) {
 	newCard.descriptors = newCard.makeTags(item.topics)
 
 	newCard.livePreview.setAttribute('href', item.homepage)
+	newCard.livePreview.setAttribute('role', 'button')
 	newCard.button.setAttribute('href', item.html_url)
 	newCard.button.setAttribute('role', 'button')
 
@@ -118,7 +120,6 @@ async function mainProjects() {
 		}
 	}
 }
-
 function moveButton() {
 	let x = 10 + Math.round(Math.random() * 80)
 	let y = 10 + Math.round(Math.random() * 80)

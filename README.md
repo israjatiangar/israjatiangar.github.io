@@ -6,10 +6,14 @@ My personal portfolio website.\
 ## What it does
 
 - Shows my projects by pulling some of my repos from the GitHub API
-- Caches the API response in localStorage for 10 days to avoid hitting rate
+- Caches the API response in localStorage for 10 days[^1] to avoid hitting rate
   limits
 - Styled with [ricss](https://github.com/israjatiangar/ricss), my own classless
   CSS framework
+
+[^1]:
+    10 days was choosen because, the changes in the github are infrequent for it
+    to matter.
 
 ## Tech used
 

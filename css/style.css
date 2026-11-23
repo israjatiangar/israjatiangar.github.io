@@ -60,6 +60,9 @@
 		scale: 0.95;
 	}
 }
+:not(.ri-grid) > .my-button + .my-button {
+	margin-inline-start: calc(0.4 * var(--ri-spacing));
+}
 .my-goTop-button {
 	position: fixed;
 	right: 0;
