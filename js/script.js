@@ -21,7 +21,7 @@ const MAGIC =
 	/** @type {HTMLButtonElement} */
 	(document.querySelector('#Magic'))
 
-const PROJECT_LIST = [`nullcents`, `ricast`, `ricss`, `ridoo`]
+const PROJECT_LIST = [`nullcents`, `ricast`, `ricss`, `ridoo`, `svearch`]
 
 let count = 0
 
